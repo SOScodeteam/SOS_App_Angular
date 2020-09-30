@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1060422471352:android:07528ff79ee419e0712e4d",
+        "mobilesdk_app_id": "1:1060422471352:android:ff01cd72ef0e8d71712e4d",
         "android_client_info": {
-          "package_name": "org.squadronofficerschool.sosapp"
+          "package_name": "org.squadronofficerschool.app"
         }
       },
       "oauth_client": [
@@ -32,10 +32,10 @@
               "client_type": 3
             },
             {
-              "client_id": "1060422471352-ajh1j5dtudh87dj4pbroskbe46jimunm.apps.googleusercontent.com",
+              "client_id": "1060422471352-dscmu93fjc7n5j3q5tg93q0dq8pc67rt.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "org.squadronofficerschool.sosapp"
+                "bundle_id": "org.squadronofficerschool.app"
               }
             }
           ]
