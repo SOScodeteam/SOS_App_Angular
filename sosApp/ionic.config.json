@@ -1,0 +1,7 @@
+{
+  "name": "sosApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
