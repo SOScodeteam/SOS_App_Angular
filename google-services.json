@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1060422471352",
+    "firebase_url": "https://sosapp-122b9.firebaseio.com",
+    "project_id": "sosapp-122b9",
+    "storage_bucket": "sosapp-122b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060422471352:android:07528ff79ee419e0712e4d",
+        "android_client_info": {
+          "package_name": "org.squadronofficerschool.sosapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1060422471352-gpsdm69uvk6q1mijtubmebcfu2elb6kq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFqzucX0zAUpXmMd9j5YtKtEj1tHUZL2o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1060422471352-gpsdm69uvk6q1mijtubmebcfu2elb6kq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1060422471352-ajh1j5dtudh87dj4pbroskbe46jimunm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.squadronofficerschool.sosapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
