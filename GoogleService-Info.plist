@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>1060422471352-ajh1j5dtudh87dj4pbroskbe46jimunm.apps.googleusercontent.com</string>
+	<string>1060422471352-dscmu93fjc7n5j3q5tg93q0dq8pc67rt.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1060422471352-ajh1j5dtudh87dj4pbroskbe46jimunm</string>
+	<string>com.googleusercontent.apps.1060422471352-dscmu93fjc7n5j3q5tg93q0dq8pc67rt</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBCkzGdAP4M-_uIExCGO_1MqfSl8xsKaxw</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>org.squadronofficerschool.sosapp</string>
+	<string>org.squadronofficerschool.app</string>
 	<key>PROJECT_ID</key>
 	<string>sosapp-122b9</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1060422471352:ios:6f4760382e2c2721712e4d</string>
+	<string>1:1060422471352:ios:4e3f343fa7b7b939712e4d</string>
 	<key>DATABASE_URL</key>
 	<string>https://sosapp-122b9.firebaseio.com</string>
 </dict>
