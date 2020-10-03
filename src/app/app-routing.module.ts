@@ -35,7 +35,10 @@ const routes: Routes = [
     path: 'admin/instructors',
     loadChildren: () => import('./instructors/instructors.module').then( m => m.InstructorsPageModule)
   },
-
+  {
+    path: 'user-settings',
+    loadChildren: () => import('./user-settings/user-settings.module').then( m => m.UserSettingsPageModule)
+  }
 ];
 
 @NgModule({

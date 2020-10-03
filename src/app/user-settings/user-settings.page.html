@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>
+      User Settings
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<form>
+  <ion-item>
+    <ion-label>User Display Name</ion-label>
+    <h2>{{user.name}}</h2>
+    <ion-textarea placeholder="Input User Display Name" value=user.name></ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-label>User Email</ion-label>
+    <h2>{{user.email}}</h2>
+    <ion-textarea placeholder="Input User Email"></ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-label>User Class</ion-label>
+    <ion-label>db UUID</ion-label>
+  </ion-item>
+  <ion-button type="submit" expand="block" (click)="submitUserSettings()">Update User Settings</ion-button>
+</form>
+</ion-content>

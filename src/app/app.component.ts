@@ -48,6 +48,15 @@ export class AppComponent {
         role : 'student'
       },
       // Order Admin pages here
+
+      {
+        title : "User Settings",
+        url   : "/user-settings",
+        icon  : "cog",
+        role  : "student"
+      },
+      
+      // Order Admin pages here 
       {
         title: 'Manage Classes',
         url  : '/admin/classes',
