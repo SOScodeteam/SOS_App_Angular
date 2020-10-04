@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -10,11 +9,14 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  pages : any;
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar
   ) {
+    this.sideMenu();
     this.initializeApp();
   }
 
@@ -24,4 +26,29 @@ export class AppComponent {
       this.splashScreen.hide();
     });
   }
+
+  sideMenu()
+  {
+    this.pages =
+    [
+      // order user seen pages here
+      {
+        title : "Home",
+        url   : "/home",
+        icon  : "home",
+        role : "student"
+      },
+      
+      // Order Admin pages here 
+      {
+        title : "Lessons",
+        url   : "/admin/lessons",
+        icon  : "book",
+        role : "admin"
+      }
+
+    ]
+  }
+
+    
 }
