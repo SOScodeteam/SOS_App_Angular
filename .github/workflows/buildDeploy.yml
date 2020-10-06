@@ -22,7 +22,7 @@ jobs:
       - name: Build
         run: ionic build
       - name: Deploy
-        if: github.ref == master
+        if: github.ref == 'master'
         env:
           FIREBASE_TOKEN: ${{secrets.FIREBASE_TOKEN}}
         run: firebase deploy
