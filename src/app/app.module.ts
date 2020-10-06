@@ -35,7 +35,7 @@ import { AngularFireMessagingModule } from '@angular/fire/messaging';
     AngularFirestoreModule,
     AngularFireFunctionsModule,
     AngularFireMessagingModule,
-    FormsModule
+    FormsModule,
     IonicStorageModule.forRoot()
   ],
   providers: [

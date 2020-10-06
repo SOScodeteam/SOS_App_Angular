@@ -1,14 +1,3 @@
-<ion-header>
-  <ion-toolbar>
-      <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-    <ion-title>
-      Feedback 
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content padding>
   <form (ngSubmit)="onSubmit()" #feedbackForm="ngForm">
     <ion-grid>
@@ -39,7 +28,7 @@
               </ion-item>
               <ion-item>
                 <ion-label position="stacked">Feedback</ion-label>
-                <ion-textarea value="Enter Comments Here..." color="primary" class="form-control" type="text"></ion-textarea> 
+                <ion-textarea placeholder="Enter Comments Here..." color="primary" class="form-control" type="text"></ion-textarea> 
               </ion-item>
               <ion-button type="submit" expand="block" (click)="submitFeedback()">Submit Feedback</ion-button>
             </ion-card-content>
