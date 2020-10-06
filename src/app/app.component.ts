@@ -38,6 +38,13 @@ export class AppComponent {
         icon  : "home",
         role : "student"
       },
+
+      {
+        title : "Feedback",
+        url   : "/feedback",
+        icon  : "book",
+        role : "student"
+      },
       
       // Order Admin pages here 
       {
@@ -46,6 +53,9 @@ export class AppComponent {
         icon  : "book",
         role : "admin"
       }
+
+      // Feedback form
+      
 
     ]
   }
