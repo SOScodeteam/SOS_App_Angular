@@ -17,7 +17,7 @@
     </ion-item>
     <ion-item>
         <ion-label>objective:</ion-label>
-        <ion-textarea formControlName="objective" type="text" placeholder="description of objective..." rows="1" text-right></ion-textarea>
+        <ion-textarea formControlName="objective" type="text" placeholder="description of objective..." rows="5" text-right></ion-textarea>
     </ion-item>
 
     <ion-button [disabled]="lessonForm.invalid" type="submit" color="success">{{ lesson ? 'Update!' : 'Create!' }}</ion-button>
