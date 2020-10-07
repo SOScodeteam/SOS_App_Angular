@@ -1,0 +1,22 @@
+
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>Lesson Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card *ngIf="lesson$ | async as lesson" color="light">
+
+      <ion-card-content>
+          <p><strong>Name: </strong>{{ lesson.name }}</p>
+          <p><strong>Objective: </strong>{{ lesson.objective}}</p>
+
+      </ion-card-content>
+  </ion-card>
+
+</ion-content>
