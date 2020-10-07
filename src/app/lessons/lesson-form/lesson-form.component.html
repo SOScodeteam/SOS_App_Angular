@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-title *ngIf="!game">Create New Lesson</ion-title>
+      <ion-title *ngIf="game">Update Lesson</ion-title>
+  </ion-toolbar>`
+</ion-header>
+
+<ion-content padding>
+
+  <div></div>
+
+  <form [formGroup]="lessonForm" (ngSubmit)="create()">
+
+    <ion-item>
+        <ion-label>name:</ion-label>
+        <ion-textarea formControlName="name" type="text" placeholder="lesson name...." rows="1" text-right></ion-textarea>
+    </ion-item>
+    <ion-item>
+        <ion-label>objective:</ion-label>
+        <ion-textarea formControlName="objective" type="text" placeholder="description of objective..." rows="1" text-right></ion-textarea>
+    </ion-item>
+
+    <ion-button [disabled]="lessonForm.invalid" type="submit" color="success">{{ lesson ? 'Update!' : 'Create!' }}</ion-button>
+    <ion-button color="medium" (click)="closeModal()">Cancel</ion-button>
+
+  </form> 
+
+</ion-content>
