@@ -1,14 +1,3 @@
-<ion-header>
-  <ion-toolbar>
-      <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-    <ion-title>
-      Feedback 
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content padding>
   <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
     <ion-grid>
@@ -40,6 +29,7 @@
               </ion-item>
               <ion-item *ngIf="!feedbackForm.get('comment').valid && feedbackForm.get('comment').touched">
                 <p>Must enter feedback comments. Max length of 300 characters.</p>
+                <ion-textarea placeholder="Enter Comments Here..." color="primary" class="form-control" type="text"></ion-textarea> 
               </ion-item>
               <ion-button type="submit" expand="block">Submit Feedback</ion-button>
             </ion-card-content>
