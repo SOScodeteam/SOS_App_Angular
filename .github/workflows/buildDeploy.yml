@@ -1,9 +1,6 @@
 name: Build/Deploy Pipeline
 
-on: 
-  push:
-    branches:
-        - "master"
+on: push
 
 jobs:
   build-deploy:
@@ -24,7 +21,10 @@ jobs:
         run: npm i -g firebase-tools@8.11.2
       - name: Build
         run: ionic build
+      - name: Test
+        run: npm test
       - name: Deploy
+        if: github.ref == 'master'
         env:
           FIREBASE_TOKEN: ${{secrets.FIREBASE_TOKEN}}
         run: firebase deploy
