@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-feedback-form',
@@ -8,37 +7,74 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./feedback-form.component.scss'],
 })
 export class FeedbackFormComponent implements OnInit {
+  feedbackForm: FormGroup;
 
+  classes = [
+    {
+      content: "Week 1: Know Yourself to Lead Yourself",
+      value: "weekOne"
+    },
+    {
+      content: "Week 2: Know Your Team to Lead Your Team",
+      value: "weekTwo"
+    },
+    {
+      content: "Week 3: Accelerating Change and Solving Problems Together",
+      value: "weekThree"
+    },
+    {
+      content: "Week 4 & 5: Joint Warfare",
+      value: "weekFourFive"
+    },
+    {
+      content: "Other",
+      value: "other"
+    }
+  ];
 
-classes = ['Really Smart', 'Super Flexible',
-  'Super Hot', 'Weather Changer'];
+  flights = [
+    {
+      content: "F-1",
+      value: "fOne"
+    },
+    {
+      content: "F-2",
+      value: "fTwo"
+    },
+    {
+      content: "F-3",
+      value: "fThree"
+    },
+    {
+      content: "F-4",
+      value: "fFour"
+    },
+    {
+      content: "N/A",
+      value: "notAvailable"
+    }
+  ];
+  
+  constructor(private fb: FormBuilder) { }
+  
+  ngOnInit() {
+    this.feedbackForm = new FormGroup({
+      class: new FormControl(null, {
+        updateOn: "submit",
+        validators: [Validators.required]
+      }),
+      flight: new FormControl(null, {
+        updateOn: "submit",
+        validators: [Validators.required]
+      }),
+      comment: new FormControl(null, {
+        updateOn: "submit",
+        validators: [Validators.required, Validators.maxLength(300), Validators.minLength(1)]
+      })
+    })
+  }
 
-// model = new Feedback(this.classes[0], 'Hello', 'yo', 'Chuck Overstreet');
-
-submitted = false;
-
-onSubmit() { this.submitted = true; }
-
-// get diagnostic() { return JSON.stringify(this.model); }
-
-name = new FormControl('');
-
-updateName() {
-this.name.setValue('Nancy');
-}
-
-title = "Feedback Form Testing";
-
-submitFeedback(data) {
-console.log("this is the data " + data);
-}
-
-constructor() { }
-
-ngOnInit() {}
-
-// onSubmit(form: NgForm) {
-//   console.log(form);
-// }
-
+  onSubmit() {
+    console.log(this.feedbackForm)
+  }
 }
