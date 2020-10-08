@@ -9,7 +9,7 @@
     <ion-content>
       <ion-list *ngFor="let page of pages">
       <ion-menu-toggle auto-hide="true">
-        <ion-item [routerLink]="page.url" routerDirection="forward" (click)="sidemenu.close">
+        <ion-item [routerLink]="page.url" routerDirection="forward" (click)="sidemenu.close()">
             <ion-icon [name]="page.icon" color="primary" slot="start"></ion-icon>
                 {{ page.title }} 
         </ion-item>
