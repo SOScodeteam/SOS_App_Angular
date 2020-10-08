@@ -31,9 +31,6 @@ export class AuthService {
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => (user ? db.doc$(`users/${user.uid}`) : of(null)))
     );
-
-      //this.handleRedirect();
-
   }
 
   async anonymousLogin(){
