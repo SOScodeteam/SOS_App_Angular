@@ -31,9 +31,6 @@ export class AuthService {
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => (user ? db.doc$(`users/${user.uid}`) : of(null)))
     );
-
-      this.handleRedirect();
-
   }
 
   async anonymousLogin(){
@@ -69,51 +66,11 @@ export class AuthService {
       .toPromise();
   }
 
-  setRedirect(val) {
-    this.storage.set('authRedirect', val);
-  }
 
-  async isRedirect() {
-    return await this.storage.get('authRedirect');
-  }
-
-  // Google Auth
   async googleLogin() {
-    try {
-      let user;
-
-      if (this.platform.is('cordova')) {
-        user = await this.nativeGoogleLogin();
-      } else {
-
-        await this.setRedirect(true);
-        const provider = new auth.GoogleAuthProvider();
-        user = await this.afAuth.signInWithRedirect(provider);
-      }
-      return await this.updateUserData(user);
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
-  // Handle login with redirect for web Google auth
-  private async handleRedirect() {
-    if ((await this.isRedirect()) !== true) {
-      return null;
-    }
-    const loading = await this.loadingController.create();
-    await loading.present();
-
-    const result = await this.afAuth.getRedirectResult();
-
-    if (result.user) {
-      await this.updateUserData(result.user);
-    }
-
-    await loading.dismiss();
-    await this.setRedirect(false);
-
-    return result;
+    const provider = new auth.GoogleAuthProvider();
+    const credential = await this.afAuth.signInWithPopup(provider);
+    return this.updateUserData(credential.user);
   }
 
   async nativeGoogleLogin(): Promise<any> {
@@ -129,3 +86,4 @@ export class AuthService {
   }
 
 }
+
