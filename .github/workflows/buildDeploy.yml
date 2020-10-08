@@ -1,0 +1,30 @@
+name: Build/Deploy Pipeline
+
+on: push
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Install NodeJS
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Install Dependencies
+        run: npm ci
+      - name: Install Ionic CLI
+        run: npm i -g @ionic/cli@6.11.10
+      - name: Install Firebase CLI
+        run: npm i -g firebase-tools@8.11.2
+      - name: Build
+        run: ionic build
+      - name: Test
+        run: npm test
+      - name: Deploy
+        if: github.ref == 'master'
+        env:
+          FIREBASE_TOKEN: ${{secrets.FIREBASE_TOKEN}}
+        run: firebase deploy

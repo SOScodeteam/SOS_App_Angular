@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AdminGuard } from './guards/admin.guard';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -13,7 +15,13 @@ const routes: Routes = [
   },
   {
     path: 'admin/lessons',
-    loadChildren: () => import('./lessons/lessons.module').then( m => m.LessonsPageModule)
+    loadChildren: () => import('./lessons/lessons.module').then( m => m.LessonsPageModule),
+    //canActivate: [AuthGuard]
+  },
+
+  {
+    path: 'feedback',
+    loadChildren: () => import('./feedback/feedback.module').then( m => m.FeedbackPageModule)
   },
 
 ];
