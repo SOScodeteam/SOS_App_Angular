@@ -24,7 +24,7 @@ jobs:
       - name: Test
         run: npm test
       - name: Deploy
-        if: github.ref == 'master'
+        if: github.ref == ''refs/heads/master''
         env:
           FIREBASE_TOKEN: ${{secrets.FIREBASE_TOKEN}}
         run: firebase deploy
