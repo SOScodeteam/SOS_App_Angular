@@ -33,18 +33,29 @@ Git: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 
 **Windows**: https://git-scm.com/download/win
 1. You may want to change the default text editor (Vim is hard)
-2. All other default installer settings are fine
+1. All other default installer settings are fine
 
 **Linux (Debian-Based Systems)**
 1. If you haven't recently, in your terminal, run `sudo apt update && sudo apt upgrade`
 2. Install git from the repositories with `sudo apt install git`
 
-## Installing Node
-Node: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+## Installing Node & npm
+- Node is a run-time environment that includes everything needed to execute a JavaScript program
+- npm (node package manager) is an application & repository for developing and sharing JavaScript code
+- Node: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 
 **Linux (Debian-Based Systems)**
 1. If you haven't recently, in your terminal, run `sudo apt update && sudo apt upgrade`
 2. Install node from the repositories with `sudo apt install nodejs`
+
+**Windows**
+1. https://nodejs.org/dist/v12.19.0/node-v12.19.0-x64.msi
+1. Use installer defaults
+1. To verify
+    1. `Windows key + r` keyboard shortcut
+    1. Type `cmd` and hit `enter`
+    1. Enter `node -v` to verify node installation
+    1. Enter `npm -v` to verify npm installation
 
 ## Installing Angular
 Angular: https://angular.io/guide/setup-local#install-the-angular-cli
@@ -52,8 +63,29 @@ Angular: https://angular.io/guide/setup-local#install-the-angular-cli
 **Linux (Debian-Based Systems)**
 1. In your terminal, run `npm install -g @angular/cli`
 
+**Windows**
+1. `Windows key + r` keyboard shortcut
+1. Type `cmd` and hit `enter`
+1. Enter `npm install -g @angular/cli`
+1. Use default installation options (will NOT share usage data by default)
+
 ## Installing Ionic
 Ionic: https://ionicframework.com/docs/intro/cli#install-the-ionic-cli
 
 **Linux (Debian-Based Systems)**
 1. In your terminal, run `npm install -g @ionic/cli`
+
+**Windows**
+1. `Windows key + r` keyboard shortcut
+1. Type `cmd` and hit `enter`
+1. Enter `npm install -g @ionic/cli`
+
+## Clone the Repository
+
+**Windows**
+1. Create a projects folder if you don't already have one and go to it in Command Prompt
+    1. `Windows key + r` keyboard shortcut
+    1. Type `cmd` and hit `enter key`
+    1. Type `cd c:\ && mkdir appdev && cd appdev` and hit `enter key`
+1. Type `git clone https://github.com/SOScodeteam/SOS_App_Angular`
+1. In your projects folder you should now have a folder called SOS_App_Angular
