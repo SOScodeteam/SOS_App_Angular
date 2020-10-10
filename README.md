@@ -111,5 +111,5 @@ First browse to the `SOS_App_Angular` project folder
 **Publish to github remote branch**
 1. `git add $FILE` where $FILE is anything you've edited (set $FILE to `-A` to add all changed files)
 1. `git commit -m "$MESSAGE"` where $MESSAGE is a summary of changes
-1. `git push`
+1. `git push -u origin`
 1. git will prompt for github credentials
