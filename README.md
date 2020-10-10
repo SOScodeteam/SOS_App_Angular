@@ -97,3 +97,19 @@ Ionic: https://ionicframework.com/docs/intro/cli#install-the-ionic-cli
 1. Go to the project dir `cd c:\appdev\SOS_App_Angular`
 1. And run `npm install @ionic/app-scripts@latest --save-dev` to make sure all plugin requirements are installed
 1. Then start the service with `ionic serve`
+
+## Quick git usage
+
+First browse to the `SOS_App_Angular` project folder
+
+**Create new local branch**
+1. `git checkout -b $NEW_BRANCH`
+
+**Use remote branch**
+1. `git checkout --track origin/$REMOTE_BRANCH`
+
+**Publish to github remote branch**
+1. `git add $FILE` where $FILE is anything you've edited (set $FILE to `-A` to add all changed files)
+1. `git commit -m "$MESSAGE"` where $MESSAGE is a summary of changes
+1. `git push`
+1. git will prompt for github credentials
