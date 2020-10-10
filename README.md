@@ -89,3 +89,11 @@ Ionic: https://ionicframework.com/docs/intro/cli#install-the-ionic-cli
     1. Type `cd c:\ && mkdir appdev && cd appdev` and hit `enter key`
 1. Type `git clone https://github.com/SOScodeteam/SOS_App_Angular`
 1. In your projects folder you should now have a folder called SOS_App_Angular
+
+## Run the app
+
+**Windows**
+1. Within `cmd`
+1. Go to the project dir `cd c:\appdev\SOS_App_Angular`
+1. And run `npm install @ionic/app-scripts@latest --save-dev` to make sure all plugin requirements are installed
+1. Then start the service with `ionic serve`
