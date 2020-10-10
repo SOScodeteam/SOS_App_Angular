@@ -23,7 +23,7 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      //this.splashScreen.hide();
     });
   }
 
@@ -40,9 +40,9 @@ export class AppComponent {
       },
 
       {
-        title : "Feedback",
+        title : "Submit Feedback",
         url   : "/feedback",
-        icon  : "book",
+        icon  : "create",
         role : "student"
       },
       
