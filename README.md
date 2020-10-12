@@ -133,5 +133,5 @@ First browse to the `SOS_App_Angular` project folder
 1. Run `git pull origin master`
 1. Resolve any conflicts
 1. Run `git add .`
-1. Run `git commit -m "merged"
+1. Run `git commit -m "merged"`
 1. Run `git push`
