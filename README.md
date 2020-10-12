@@ -92,9 +92,9 @@ Ionic: https://ionicframework.com/docs/intro/cli#install-the-ionic-cli
 
 **MacOS**
 1. Create a folder named appdev on Desktop. Open terminal.app and navigate to appdev.  
-    1. Type `cd Desktop`
-    1. Type `cd appdev`
-    1. Type `git clone https://github.com/SOScodeteam/SOS_App_Angular`
+    1. Navigate to desktop: Run `cd Desktop`
+    1. Navigate to appdev: Run `cd appdev`
+    1. Run `git clone https://github.com/SOScodeteam/SOS_App_Angular`
 
 ## Run the app
 
@@ -106,9 +106,9 @@ Ionic: https://ionicframework.com/docs/intro/cli#install-the-ionic-cli
 
 **MacOS**
 1. After cloning the respository.  In the terminal navigate to the SOS_App_Angular folder.
-1. Type `cd SOS_App_Angular`
-1. Type `npm install @ionic/app-scripts@latest --save-dev`
-1. Type `ionic serve`
+1. Navigate to SOS_App_Angular: Run `cd SOS_App_Angular`
+1. Run `npm install @ionic/app-scripts@latest --save-dev`
+1. Run `ionic serve`
 1. Note: This app works best using Google Chrome.
 
 ## Quick git usage
