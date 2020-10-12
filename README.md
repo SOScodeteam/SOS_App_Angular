@@ -126,3 +126,12 @@ First browse to the `SOS_App_Angular` project folder
 1. `git commit -m "$MESSAGE"` where $MESSAGE is a summary of changes
 1. `git push -u origin`
 1. git will prompt for github credentials
+
+**Update development branch from master**
+1. In the SOS_App_Angular folder
+1. Run `checkout <name of branch>`
+1. Run `git pull origin master`
+1. Resolve any conflicts
+1. Run `git add .`
+1. Run `git commit -m "merged"
+1. Run `git push`
