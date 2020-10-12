@@ -39,10 +39,10 @@ export class AppComponent {
         role : "student"
       },
 
-      {
-        title : "Feedback",
+      { // Feedback form
+        title : "Submit Feedback",
         url   : "/feedback",
-        icon  : "book",
+        icon  : "create",
         role : "student"
       },
       
@@ -52,9 +52,18 @@ export class AppComponent {
         url   : "/admin/lessons",
         icon  : "book",
         role : "admin"
-      }
+      },
+      {
+        title : "Flights",
+        url   : "/admin/flights",
+        icon  : "people-circle",
+        role : "admin"
+      },
 
-      // Feedback form
+
+
+
+      
       
 
     ]

@@ -16,12 +16,16 @@ const routes: Routes = [
   {
     path: 'admin/lessons',
     loadChildren: () => import('./lessons/lessons.module').then( m => m.LessonsPageModule),
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
 
   {
     path: 'feedback',
     loadChildren: () => import('./feedback/feedback.module').then( m => m.FeedbackPageModule)
+  },
+  {
+    path: 'admin/flights',
+    loadChildren: () => import('./flights/flights.module').then( m => m.FlightsPageModule)
   },
 
 ];

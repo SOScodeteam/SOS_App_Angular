@@ -9,6 +9,35 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-<p>This is the lesson page!</p>
+<ion-content padding>
+  <div class="lesson-list">
+    <ion-list>
+      <!-- async auto onsubstribes from observable. Trackby keeps the screen from refreshing unless data changes. -->
+      <ion-item *ngFor="let lesson of lessons | async; trackBy: trackById">
+        <ion-label>
+          <span>  {{ lesson.name}} </span>
+        </ion-label>
+    
+        <ion-button [href]="'admin/lessons/' + lesson.id" color="primary">
+          <ion-icon name="eye"></ion-icon>
+        </ion-button>
+    
+        <ion-button (click)="presentForm(lesson)" color="tertiary">
+          <ion-icon name="create"></ion-icon>
+        </ion-button>
+    
+        <ion-button (click)="openDeleteAlert(lesson)" color="danger">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
+
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button color="success" (click)="presentForm()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
 </ion-content>
