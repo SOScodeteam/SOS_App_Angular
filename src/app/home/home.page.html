@@ -1,14 +1,48 @@
-<ion-header>
-  <ion-toolbar>
-      <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-    <ion-title>
-      Squadron Officer School
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+ <ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+      <ion-title>
+        Squadron Officer School
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-<ion-content>  
+<ion-content>
   <app-login></app-login>
-</ion-content> 
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3">
+      </ion-col>
+      <ion-col size="3">
+        <a href="/feedback"><img src="../../assets/feedback.png" alt="Provide Feedback" style="height: 150px" ></a>
+      </ion-col>
+      <ion-col size="3">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="3">
+        <a onclick="window.open(this.href,'_blank');return false;" 
+        href="https://lms.au.af.edu/"><img src="../../assets/icon/Canvas-Logo.png" alt="Canvas" 
+        style="height: 150px"></a>
+      </ion-col>
+
+      <ion-col size="3">
+        <a onclick="window.open(this.href,'_blank');return false;" 
+        href="https://calendar.google.com/calendar/embed?src=usaf.sos.scheduling%40gmail.com"><img src="../../assets/icon/Google_Calendar_Logo.png" alt="SOS Google Calendar" 
+        style="height: 150px" ></a>
+      </ion-col>
+      <ion-col size="3">
+        <a onclick="window.open(this.href,'_blank');return false;" 
+        href="https://www.airuniversity.af.edu/SOS/"><img src="../../assets/icon/AU-Logo.png" alt="Air University" 
+        style="height: 150px" ></a>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+
+  
+
