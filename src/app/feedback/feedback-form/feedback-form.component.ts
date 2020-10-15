@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { ModalController } from '@ionic/angular';
+import { DbService } from '../../services/db.service';
+import * as firebase from 'firebase';
+import { shareReplay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-feedback-form',
@@ -8,58 +12,19 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 })
 export class FeedbackFormComponent implements OnInit {
   feedbackForm: FormGroup;
-
-  classes = [
-    {
-      content: "Week 1: Know Yourself to Lead Yourself",
-      value: "weekOne"
-    },
-    {
-      content: "Week 2: Know Your Team to Lead Your Team",
-      value: "weekTwo"
-    },
-    {
-      content: "Week 3: Accelerating Change and Solving Problems Together",
-      value: "weekThree"
-    },
-    {
-      content: "Week 4 & 5: Joint Warfare",
-      value: "weekFourFive"
-    },
-    {
-      content: "Other",
-      value: "other"
-    }
-  ];
-
-  flights = [
-    {
-      content: "F-1",
-      value: "fOne"
-    },
-    {
-      content: "F-2",
-      value: "fTwo"
-    },
-    {
-      content: "F-3",
-      value: "fThree"
-    },
-    {
-      content: "F-4",
-      value: "fFour"
-    },
-    {
-      content: "N/A",
-      value: "notAvailable"
-    }
-  ];
+  feedback;
+  lessons;
+  flights;
   
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private db: DbService,
+    private modal: ModalController,
+    private fb: FormBuilder
+  ) { }
   
   ngOnInit() {
     this.feedbackForm = new FormGroup({
-      class: new FormControl(null, {
+      lesson: new FormControl(null, {
         updateOn: "submit",
         validators: [Validators.required]
       }),
@@ -71,10 +36,36 @@ export class FeedbackFormComponent implements OnInit {
         updateOn: "submit",
         validators: [Validators.required, Validators.maxLength(300), Validators.minLength(1)]
       })
-    })
+    });
+
+    this.lessons = this.db.collection$('lessons', ref =>
+    ref
+      .orderBy('name', 'asc')
+    ), shareReplay(1); // only read the doc 1 if you subscribe to the observable multiple times
+
+    this.flights = this.db.collection$('flights', ref =>
+    ref
+      .orderBy('name', 'asc')
+    ), shareReplay(1); // only read the doc 1 if you subscribe to the observable multiple times
   }
 
-  onSubmit() {
-    console.log(this.feedbackForm)
+  async create() {
+    const id = this.feedback ? this.feedback.id : '';
+
+    const data = {
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      ...this.feedback,
+      ...this.feedbackForm.value,
+    };
+    this.db.updateAt(`feedback/${id}`, data);
+    this.modal.dismiss();
+  }
+
+  trackByIdLesson(id, lesson) {
+    return lesson.id
+  }
+
+  trackByIdFlight(id, flight) {
+    return flight.id
   }
 }
