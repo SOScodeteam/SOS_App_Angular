@@ -1,20 +1,33 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { LessonsPageRoutingModule } from './lessons-routing.module';
-
 import { LessonsPage } from './lessons.page';
+import { LessonFormComponent } from './lesson-form/lesson-form.component';
+import { LessonDetailComponent } from './lesson-detail/lesson-detail.component';
 
+const routes: Routes = [
+  {
+    path: '',
+    component: LessonsPage
+  },
+  {
+    path: ':id',
+    component: LessonDetailComponent
+  }
+];
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LessonsPageRoutingModule
+    RouterModule.forChild(routes),
+    ReactiveFormsModule
   ],
-  declarations: [LessonsPage]
+  declarations: [LessonsPage, LessonDetailComponent, LessonFormComponent],
+  entryComponents: [LessonFormComponent]
 })
 export class LessonsPageModule {}

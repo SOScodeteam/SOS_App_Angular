@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { ModalController } from '@ionic/angular';
+import { DbService } from '../../services/db.service';
+import * as firebase from 'firebase';
+import { shareReplay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-feedback-form',
@@ -8,37 +11,61 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./feedback-form.component.scss'],
 })
 export class FeedbackFormComponent implements OnInit {
+  feedbackForm: FormGroup;
+  feedback;
+  lessons;
+  flights;
+  
+  constructor(
+    private db: DbService,
+    private modal: ModalController,
+    private fb: FormBuilder
+  ) { }
+  
+  ngOnInit() {
+    this.feedbackForm = new FormGroup({
+      lesson: new FormControl(null, {
+        updateOn: "submit",
+        validators: [Validators.required]
+      }),
+      flight: new FormControl(null, {
+        updateOn: "submit",
+        validators: [Validators.required]
+      }),
+      comment: new FormControl(null, {
+        updateOn: "submit",
+        validators: [Validators.required, Validators.maxLength(300), Validators.minLength(1)]
+      })
+    });
 
+    this.lessons = this.db.collection$('lessons', ref =>
+    ref
+      .orderBy('name', 'asc')
+    ), shareReplay(1); // only read the doc 1 if you subscribe to the observable multiple times
 
-classes = ['Really Smart', 'Super Flexible',
-  'Super Hot', 'Weather Changer'];
+    this.flights = this.db.collection$('flights', ref =>
+    ref
+      .orderBy('name', 'asc')
+    ), shareReplay(1); // only read the doc 1 if you subscribe to the observable multiple times
+  }
 
-// model = new Feedback(this.classes[0], 'Hello', 'yo', 'Chuck Overstreet');
+  async create() {
+    const id = this.feedback ? this.feedback.id : '';
 
-submitted = false;
+    const data = {
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      ...this.feedback,
+      ...this.feedbackForm.value,
+    };
+    this.db.updateAt(`feedback/${id}`, data);
+    this.modal.dismiss();
+  }
 
-onSubmit() { this.submitted = true; }
+  trackByIdLesson(id, lesson) {
+    return lesson.id
+  }
 
-// get diagnostic() { return JSON.stringify(this.model); }
-
-name = new FormControl('');
-
-updateName() {
-this.name.setValue('Nancy');
-}
-
-title = "Feedback Form Testing";
-
-submitFeedback(data) {
-console.log("this is the data " + data);
-}
-
-constructor() { }
-
-ngOnInit() {}
-
-// onSubmit(form: NgForm) {
-//   console.log(form);
-// }
-
+  trackByIdFlight(id, flight) {
+    return flight.id
+  }
 }

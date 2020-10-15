@@ -1,36 +1,36 @@
 <ion-content padding>
-  <form (ngSubmit)="onSubmit()" #feedbackForm="ngForm">
+  <form [formGroup]="feedbackForm" (ngSubmit)="create()">
     <ion-grid>
       <ion-row>
-        <ion-col size-md="6" offset-md="3">
+        <ion-col size-sm="6" offset-sm="3">
           <ion-card>
-            <ion-card-header>
-              {{title}}
-            </ion-card-header>
             <ion-card-content>
               <ion-item>
-                <ion-label color="primary">Choose Class Block</ion-label>
-                <ion-select interface="" class="form-control">
-                  <ion-select-option value="weekOne">Week 1: Know Yourself to Lead Yourself</ion-select-option>
-                  <ion-select-option value="weekTwo">Week 2: Know Your Team to Lead Your Team</ion-select-option>
-                  <ion-select-option value="weekThree">Week 3: Accelerating Change and Solving Problems Together</ion-select-option>
-                  <ion-select-option value="WeekFourFive">Week 4 & 5: Joint Warfare</ion-select-option>
-                  <ion-select-option value="Other">Other"</ion-select-option>
+                <ion-label color="primary">Choose Lesson</ion-label>
+                <ion-select formControlName="lesson" value="lesson.value">
+                  <ion-select-option *ngFor="let lesson of lessons | async; trackBy: trackByIdLesson">{{lesson.name}}</ion-select-option>
                 </ion-select>
               </ion-item>
-              <ion-item>
-                <ion-label position="floating" value="flight">Flight</ion-label>
-                <ion-input type="text" class="form-control"></ion-input> 
+              <ion-item *ngIf="!feedbackForm.get('lesson').valid && feedbackForm.get('lesson').touched">
+                <p>Must choose class</p>
               </ion-item>
               <ion-item>
-                <ion-label position="floating" value="moreData">Name</ion-label>
-                <ion-input color="primary" class="form-control" type="text"></ion-input> 
+                <ion-label color="primary">Choose Flight</ion-label>
+                <ion-select formControlName="flight" value="flight.value">
+                  <ion-select-option *ngFor="let flight of flights | async; trackBy: trackByIdFlight" >{{flight.name}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+              <ion-item *ngIf="!feedbackForm.get('flight').valid && feedbackForm.get('flight').touched">
+                <p>Must choose flight</p>
               </ion-item>
               <ion-item>
                 <ion-label position="stacked">Feedback</ion-label>
-                <ion-textarea placeholder="Enter Comments Here..." color="primary" class="form-control" type="text"></ion-textarea> 
+                <ion-textarea value="Enter Comments Here..." type="text" formControlName="comment" rows="5"></ion-textarea> 
               </ion-item>
-              <ion-button type="submit" expand="block" (click)="submitFeedback()">Submit Feedback</ion-button>
+              <ion-item *ngIf="!feedbackForm.get('comment').valid && feedbackForm.get('comment').touched">
+                <p>Must enter feedback comments. Max length of 300 characters.</p>
+              </ion-item>
+              <ion-button type="submit" expand="block">Submit Feedback</ion-button>
             </ion-card-content>
           </ion-card>
         </ion-col>
