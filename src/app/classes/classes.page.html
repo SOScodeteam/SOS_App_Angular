@@ -4,7 +4,7 @@
       <ion-menu-button></ion-menu-button>
       </ion-buttons>
     <ion-title>
-      Manage Flights
+      Manage Classes
     </ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="presentForm()">
@@ -17,16 +17,16 @@
 <ion-content>
   <ion-list>
     <ion-list>
-      <ion-item-sliding #slidingItem *ngFor="let flight of flights | async; trackBy: trackById">
+      <ion-item-sliding #slidingItem *ngFor="let class of classes | async; trackBy: trackById">
         <ion-item>
-          <ion-label (click)="edit(flight)">{{ flight.name }}&nbsp;-&nbsp;<ion-text color="medium">{{ flight.class }}</ion-text></ion-label>
+          <ion-label (click)="edit(class)">{{ class.name }}</ion-label>
           <ion-button (click)="openCloseSlider(slidingItem)" color="none" fill="none">
             <ion-icon slot="icon-only" color="medium" name="cog">options</ion-icon>
           </ion-button>
         </ion-item>
         <ion-item-options>
-          <ion-item-option (click)="edit(flight)"><ion-icon name="create">edit</ion-icon></ion-item-option>
-          <ion-item-option color="danger" (click)="openDeleteAlert(flight)"><ion-icon name="trash">delete</ion-icon></ion-item-option>
+          <ion-item-option (click)="edit(class)"><ion-icon name="create">edit</ion-icon></ion-item-option>
+          <ion-item-option color="danger" (click)="openDeleteAlert(class)"><ion-icon name="trash">delete</ion-icon></ion-item-option>
         </ion-item-options>
       </ion-item-sliding>
     </ion-list>
