@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 
+
 @Component({
   selector: 'app-feedback',
   templateUrl: './feedback.page.html',
@@ -8,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedbackPage implements OnInit {
 
+  feedbackType;
+  showClassFeedbackForm;
+  showInstructorFeedbackForm;
+  showLessonFeedbackForm;
+
+
   constructor() { }
 
   ngOnInit() {
+    this.showClassFeedbackForm = true;
+    this.showInstructorFeedbackForm = false;
+    this.showLessonFeedbackForm = false;
+    this.feedbackType = "class";
+  }
+
+  selectFeedbackForm(segment: any) {
+    console.log(segment.detail.value);
+
+    this.feedbackType = segment.detail.value;
+
   }
 
 }
