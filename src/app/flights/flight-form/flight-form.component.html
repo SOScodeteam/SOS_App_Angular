@@ -14,13 +14,16 @@
 
     <ion-item>
       <ion-label>Class:</ion-label>
-      <ion-input formControlName="class" type="text" placeholder="Class Name"></ion-input>
+      <ion-select formControlName="class">
+        <ion-select-option *ngFor="let cls of classes">{{ cls.name }}</ion-select-option>
+        <ion-select-option *ngIf="!classExists">{{ flight.class }}</ion-select-option>
+      </ion-select>
     </ion-item>
 
     <ion-button *ngIf="!flight" [disabled]="flightForm.invalid" type="submit" expand="block" fill="clear" shape="round">
       Create
     </ion-button>
-    <ion-button *ngIf="flight" [disabled]="flightForm.invalid" type="submit" expand="block" fill="clear" shape="round">
+    <ion-button *ngIf="flight" [disabled]="flightForm.invalid" type="submit" expand="block" fill="clear" shape="round" [disabled]="!flightForm.dirty">
       Update
     </ion-button>
     <ion-button *ngIf="flight" (click)="openDeleteAlert()" expand="block" fill="clear" shape="round" color="danger">

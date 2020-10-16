@@ -27,6 +27,14 @@ const routes: Routes = [
     path: 'admin/flights',
     loadChildren: () => import('./flights/flights.module').then( m => m.FlightsPageModule)
   },
+  {
+    path: 'admin/classes',
+    loadChildren: () => import('./classes/classes.module').then( m => m.CoursesPageModule)
+  },
+  {
+    path: 'admin/instructors',
+    loadChildren: () => import('./instructors/instructors.module').then( m => m.InstructorsPageModule)
+  },
 
 ];
 
