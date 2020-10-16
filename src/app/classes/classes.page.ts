@@ -4,16 +4,17 @@ import { shareReplay } from 'rxjs/operators';
 import { AlertController, ModalController } from '@ionic/angular';
 
 import { DbService } from '../services/db.service';
-import { FlightFormComponent } from "./flight-form/flight-form.component";
+import { ClassFormComponent } from './class-form/class-form.component';
+
 
 @Component({
-  selector: 'app-flights',
-  templateUrl: './flights.page.html',
-  styleUrls: ['./flights.page.scss'],
+  selector: 'app-classes',
+  templateUrl: './classes.page.html',
+  styleUrls: ['./classes.page.scss'],
 })
-export class FlightsPage implements OnInit {
+export class ClassesPage implements OnInit {
+
   classes;
-  flights;
 
   constructor(
     public db: DbService,
@@ -22,19 +23,11 @@ export class FlightsPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.flights = this.db.collection$('flights', ref =>
+    this.classes = this.db.collection$('classes', ref =>
       ref
         .orderBy('name', 'asc')
       ), shareReplay(1); // only read the doc 1 if you subscribe to the observable multiple times.
-    this.db.collection$('classes', ref =>
-      ref
-        .orderBy('name', 'asc')
-      ).subscribe( res => {
-        this.classes = res;
-        console.log(this.classes);
-      });
   }
-
   openCloseSlider(itemSlide) {
     if (itemSlide.el.classList.contains('item-sliding-active-slide')) {
       itemSlide.close();
@@ -43,30 +36,26 @@ export class FlightsPage implements OnInit {
     }
   }
 
-  async presentForm(flight?: any) {
-    const classes = this.classes;
+  async presentForm(cls?: any) { // need to use the name "cls" b/c "class" is reserved word
     const modal = await this.modal.create({
-        component: FlightFormComponent,
-        componentProps: {
-          classes,
-          flight
-        }
-      });
+      component: ClassFormComponent,
+      componentProps: { cls }
+    });
     return await modal.present();
   }
 
-  trackById(id, obj) {
-    return obj.id;
+  trackById(id, cls) {
+    return cls.id;
   }
 
-  edit(flight) {
-    this.presentForm(flight);
+  edit(cls) {
+    this.presentForm(cls);
   }
 
-  async openDeleteAlert(flight) {
+  async openDeleteAlert(cls) {
     const alert = await this.alert.create({
-      header: 'Delete Flight?',
-      message: 'Warning ' + flight.name + ' will be permanently removed!',
+      header: 'Delete Class?',
+      message: 'Warning ' + cls.name + ' will be permanently removed!',
       buttons: [
         {
           text: 'Cancel',
@@ -80,7 +69,7 @@ export class FlightsPage implements OnInit {
           text: 'Delete',
           cssClass: 'danger',
           handler: () => {
-            this.delete(flight);
+            this.delete(cls);
           }
         }
       ]
@@ -88,7 +77,7 @@ export class FlightsPage implements OnInit {
     await alert.present();
   }
 
-  delete(flight) {
-    this.db.delete(`flights/${flight.id}`);
+  delete(cls) {
+    this.db.delete(`classes/${cls.id}`);
   }
 }

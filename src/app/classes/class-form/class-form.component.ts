@@ -1,20 +1,17 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DbService } from 'src/app/services/db.service';
 
-
 @Component({
-  selector: 'app-flight-form',
-  templateUrl: './flight-form.component.html',
-  styleUrls: ['./flight-form.component.scss'],
+  selector: 'app-class-form',
+  templateUrl: './class-form.component.html',
+  styleUrls: ['./class-form.component.scss'],
 })
-export class FlightFormComponent implements OnInit {
+export class ClassFormComponent implements OnInit {
 
-  flightForm: FormGroup;
-  @Input() flight?;
-  @Input() classes;
-  classExists = true;
+  classForm: FormGroup;
+  cls;
 
   constructor(
     private db: DbService,
@@ -26,35 +23,29 @@ export class FlightFormComponent implements OnInit {
   ngOnInit() {
     const data = {
       name: '',
-      ...this.flight
+      ...this.cls
     };
 
-    if (this.flight && !this.classes.filter(cls => cls.name === this.flight.class).length) {
-      this.classExists = false;
-    }
-
-    this.flightForm = this.fb.group({
-      name: [data.name, [Validators.required]],
-      class: [data.class, [Validators.required]],
+    this.classForm = this.fb.group({
+      name: [data.name, [Validators.required]]
     });
   }
 
   async create() {
-    const id = this.flight ? this.flight.id : '';
+    const id = this.cls ? this.cls.id : '';
 
     const data = {
-      ...this.flight,
-      ...this.flightForm.value,
+      ...this.cls,
+      ...this.classForm.value,
     };
-    this.db.updateAt(`flights/${id}`, data);
+    this.db.updateAt(`classes/${id}`, data);
     this.modal.dismiss();
   }
 
-  // TODO: Figure out how to call the parent method so there is less code reuse.
   async openDeleteAlert() {
     const alert = await this.alert.create({
-      header: 'Delete Flight?',
-      message: 'Warning ' + this.flight.name + ' will be permanently removed!',
+      header: 'Delete Course?',
+      message: 'Warning ' + this.cls.name + ' will be permanently removed!',
       buttons: [
         {
           text: 'Cancel',
@@ -77,11 +68,12 @@ export class FlightFormComponent implements OnInit {
   }
 
   delete() {
-    this.db.delete(`flights/${this.flight.id}`);
+    this.db.delete(`classes/${this.cls.id}`);
     this.modal.dismiss();
   }
 
   closeModal() {
     this.modal.dismiss();
   }
+
 }
