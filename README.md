@@ -129,7 +129,7 @@ First browse to the `SOS_App_Angular` project folder
 
 **Update development branch from master**
 1. In the SOS_App_Angular folder
-1. Run `checkout <name of branch>`
+1. Run `git checkout <name of branch>`
 1. Run `git pull origin master`
 1. Resolve any conflicts
 1. Run `git add .`
