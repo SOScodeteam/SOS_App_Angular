@@ -5,12 +5,14 @@ import { DbService } from '../../services/db.service';
 import * as firebase from 'firebase';
 import { shareReplay } from 'rxjs/operators';
 
+
 @Component({
-  selector: 'app-feedback-form',
-  templateUrl: './feedback-form.component.html',
-  styleUrls: ['./feedback-form.component.scss'],
+  selector: 'app-feedback-form-class',
+  templateUrl: './feedback-form-class.component.html',
+  styleUrls: ['./feedback-form-class.component.scss'],
 })
-export class FeedbackFormComponent implements OnInit {
+export class FeedbackFormClassComponent implements OnInit {
+  
   feedbackForm: FormGroup;
   feedback;
   lessons;
