@@ -6,7 +6,7 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-content>
+    <ion-content *ngIf="auth.user$ | async as user; else loginMessage">
       <ion-list>
         <ion-list-header>
           Student Options
@@ -31,7 +31,27 @@
             </ion-item>
           </ng-container>
       </ion-list>
+      <ion-list>
+        <ion-list-header>
+          Logout
+        </ion-list-header>
+        <ion-item routerLink="/home" (click)="auth.logOut(); sidemenu.close()" class="ion-no-border">
+          <ion-icon color="danger" slot="start" name="log-out"></ion-icon>
+          <ion-text color="danger">Logout</ion-text>
+        </ion-item>
+      </ion-list>
     </ion-content>
+
+    <ng-template #loginMessage>
+      <ion-content>
+        <ion-list>
+          <ion-item routerLink="/home" routerDirection="forward" (click)="sidemenu.close()">
+            <ion-icon color="primary" slot="start" name="log-in"></ion-icon>
+            <ion-text color="primary">Login</ion-text>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ng-template>
   </ion-menu>
 
 

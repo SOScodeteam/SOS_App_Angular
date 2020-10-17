@@ -28,7 +28,11 @@ export class InstructorFormComponent implements OnInit {
     };
 
     this.instructorForm = this.fb.group({
-      name: [data.name, [Validators.required]]
+      displayName: [data.displayName, [Validators.required]],
+      firstName: [data.firstName, [Validators.required]],
+      lastName: [data.lastName, [Validators.required]],
+      rank: [data.rank, [Validators.required]]
+
     });
   }
 
