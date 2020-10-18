@@ -119,7 +119,15 @@ First browse to the `SOS_App_Angular` project folder
 1. `git checkout -b $NEW_BRANCH`
 
 **Use remote branch**
-1. `git checkout --track origin/$REMOTE_BRANCH`
+1. Check to see if you have a local copy of the remote branch by seeing if it's listed in output of `git branch`
+1. If it's not listed: `git checkout --track origin/$REMOTE_BRANCH`
+1. If it's listed: 
+    1. `git checkout $BRANCH`
+    1. `git pull` to get latest version of branch
+1. May want to work with all changes from all branches to get warm fuzzies. *This workflow is up for debate, probably not needed if working on something that's standalone like "documentation"*
+    1. `git fetch origin` to pull all commits from all branches into my branch.
+    1. `git log` or `gitk` to compare and get warm fuzzies and resolve conflicts.
+    1. `git merge master` merge all the those changes into your branch.
 
 **Publish to github remote branch**
 1. `git add $FILE` where $FILE is anything you've edited (set $FILE to `-A` to add all changed files)
