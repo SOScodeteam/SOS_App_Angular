@@ -89,3 +89,57 @@ Ionic: https://ionicframework.com/docs/intro/cli#install-the-ionic-cli
     1. Type `cd c:\ && mkdir appdev && cd appdev` and hit `enter key`
 1. Type `git clone https://github.com/SOScodeteam/SOS_App_Angular`
 1. In your projects folder you should now have a folder called SOS_App_Angular
+
+**MacOS**
+1. Create a folder named appdev on Desktop. Open terminal.app and navigate to appdev.  
+    1. Navigate to desktop: Run `cd Desktop`
+    1. Navigate to appdev: Run `cd appdev`
+    1. Run `git clone https://github.com/SOScodeteam/SOS_App_Angular`
+
+## Run the app
+
+**Windows**
+1. Within `cmd`
+1. Go to the project dir `cd c:\appdev\SOS_App_Angular`
+1. And run `npm install @ionic/app-scripts@latest --save-dev` to make sure all plugin requirements are installed
+1. Then start the service with `ionic serve`
+
+**MacOS**
+1. After cloning the respository.  In the terminal navigate to the SOS_App_Angular folder.
+1. Navigate to SOS_App_Angular: Run `cd SOS_App_Angular`
+1. Run `npm install @ionic/app-scripts@latest --save-dev`
+1. Run `ionic serve`
+1. Note: This app works best using Google Chrome.
+
+## Quick git usage
+
+First browse to the `SOS_App_Angular` project folder
+
+**Create new local branch**
+1. `git checkout -b $NEW_BRANCH`
+
+**Use remote branch**
+1. Check to see if you have a local copy of the remote branch by seeing if it's listed in output of `git branch`
+1. If it's not listed: `git checkout --track origin/$REMOTE_BRANCH`
+1. If it's listed: 
+    1. `git checkout $BRANCH`
+    1. `git pull` to get latest version of branch
+1. May want to work with all changes from all branches to get warm fuzzies. *This workflow is up for debate, probably not needed if working on something that's standalone like "documentation"*
+    1. `git fetch origin` to pull all commits from all branches into my branch.
+    1. `git log` or `gitk` to compare and get warm fuzzies and resolve conflicts.
+    1. `git merge master` merge all the those changes into your branch.
+
+**Publish to github remote branch**
+1. `git add $FILE` where $FILE is anything you've edited (set $FILE to `-A` to add all changed files)
+1. `git commit -m "$MESSAGE"` where $MESSAGE is a summary of changes
+1. `git push -u origin`
+1. git will prompt for github credentials
+
+**Update development branch from master**
+1. In the SOS_App_Angular folder
+1. Run `git checkout <name of branch>`
+1. Run `git pull origin master`
+1. Resolve any conflicts
+1. Run `git add .`
+1. Run `git commit -m "merged"`
+1. Run `git push`
