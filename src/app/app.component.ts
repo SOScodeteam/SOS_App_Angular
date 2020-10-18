@@ -49,6 +49,12 @@ export class AppComponent {
       },
       // Order Admin pages here
       {
+        title: 'Review Feedback',
+        url  : '/admin/review',
+        icon : 'stats-chart',
+        role : 'admin'
+      },
+      {
         title: 'Manage Classes',
         url  : '/admin/classes',
         icon : 'file-tray-full',

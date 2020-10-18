@@ -11,5 +11,17 @@
 
 
 <ion-content>
-
+  <ion-list>
+    <ion-item *ngFor="let fb of feedback | async" (click)="showDetails(fb)">
+      <ion-icon name="book" color="primary" slot="start" *ngIf="fb.lesson"></ion-icon>
+      <ion-icon name="person" color="primary" slot="start" *ngIf="fb.instructor"></ion-icon>
+      <ion-icon name="file-tray-full" color="primary" slot="start" *ngIf="fb.class"></ion-icon>
+      <ion-label>
+        <h2>{{ fb.createdAt.toDate() | date:'yyyy/MM/dd h:mm:ss a' }}</h2>
+        <p>{{ fb.comment }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
+
+

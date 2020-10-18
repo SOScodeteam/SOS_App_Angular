@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Feedback Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+
+  <ion-list>
+    <ion-item *ngFor="let item of fb | keyvalue">
+      {{item | json }}
+    </ion-item>
+  </ion-list>
+
+  <ion-button (click)="closeModal()" expand="block" fill="clear" shape="round">
+    Close
+  </ion-button>
+
+</ion-content>
