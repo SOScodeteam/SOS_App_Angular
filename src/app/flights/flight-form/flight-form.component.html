@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title *ngIf="!flight">Create a New Flight</ion-title>
+    <ion-title *ngIf="flight">Edit Flight</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="flightForm" (ngSubmit)="create()">
+    <ion-item>
+      <ion-label>Name:</ion-label>
+      <ion-input formControlName="name" type="text" placeholder="Flight Name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Class:</ion-label>
+      <ion-select formControlName="class">
+        <ion-select-option *ngFor="let cls of classes">{{ cls.name }}</ion-select-option>
+        <ion-select-option *ngIf="!classExists">{{ flight.class }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-button *ngIf="!flight" [disabled]="flightForm.invalid" type="submit" expand="block" fill="clear" shape="round">
+      Create
+    </ion-button>
+    <ion-button *ngIf="flight" [disabled]="flightForm.invalid" type="submit" expand="block" fill="clear" shape="round" [disabled]="!flightForm.dirty">
+      Update
+    </ion-button>
+    <ion-button *ngIf="flight" (click)="openDeleteAlert()" expand="block" fill="clear" shape="round" color="danger">
+      Delete
+    </ion-button>
+    <ion-button (click)="closeModal()" expand="block" fill="clear" shape="round">
+      Cancel
+    </ion-button>
+  </form>
+</ion-content>
