@@ -1,3 +1,47 @@
-<p>
-  feedback-form-lesson works!
-</p>
+<ion-content padding>
+  <form [formGroup]="feedbackForm" (ngSubmit)="create()">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-card>
+            <ion-card-content>
+
+              <ion-item>
+                <ion-label color="primary">Choose Lesson</ion-label>
+                <ion-select formControlName="lesson" value="lesson.value">
+                  <ion-select-option size="12" *ngFor="let lesson of lessons | async; trackBy: trackByIdLesson">{{lesson.name}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+
+              <ion-item *ngIf="!feedbackForm.get('lesson').valid && feedbackForm.get('lesson').touched">
+                <p>Must choose class</p>
+              </ion-item>
+
+              <ion-item>
+                <ion-label color="primary">Choose Flight</ion-label>
+                <ion-select formControlName="flight" value="flight.value">
+                  <ion-select-option size="12" *ngFor="let flight of flights | async; trackBy: trackByIdFlight" >{{flight.name}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+
+              <ion-item *ngIf="!feedbackForm.get('flight').valid && feedbackForm.get('flight').touched">
+                <p>Must choose flight</p>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="stacked">Feedback</ion-label>
+                <ion-textarea value="Enter Comments Here..." type="text" formControlName="comment" rows="5"></ion-textarea> 
+              </ion-item>
+
+              <ion-item *ngIf="!feedbackForm.get('comment').valid && feedbackForm.get('comment').touched">
+                <p>Must enter feedback comments. Max length of 300 characters.</p>
+              </ion-item>
+
+              <ion-button [disabled]="feedbackForm.invalid" type="submit" expand="block" (click)="submitFeedback()">Submit Feedback</ion-button>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
