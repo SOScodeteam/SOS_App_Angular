@@ -3,16 +3,24 @@
   <ion-card-header>
     <ion-grid>
       <ion-row class="ion-align-self-center">
-        <ion-col size="2" >
+        <ion-col size="2">
           <ion-avatar>
             <img [src]="user.photoURL || 'assets/icon/anon.png'"> 
           </ion-avatar>
         </ion-col>
         <ion-col size="1"></ion-col>
-        <ion-col size ="9"  class="ion-align-self-left">
+        <ion-col size ="9" class="ion-align-self-left">
           <ion-card-title >
            {{ user.displayName || 'Mysterious User' }}
           </ion-card-title>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-start">
+          <ion-button shape="round" color="primary" disabled>Edit Profile</ion-button>
+        </ion-col>
+        <ion-col class="ion-text-end">
+          <ion-button shape="round" color="danger" (click)="auth.logOut()">Logout</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>

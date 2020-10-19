@@ -1,0 +1,36 @@
+<ion-content padding>
+  <form [formGroup]="feedbackForm" (ngSubmit)="create()">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-card>
+            <ion-card-content>
+
+              <ion-item>
+                <ion-label color="primary">Choose Class</ion-label>
+                <ion-select formControlName="class" value="class.value">
+                  <ion-select-option size="12" *ngFor="let class of classes | async; trackBy: trackById">{{class.name}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+
+              <ion-item *ngIf="!feedbackForm.get('class').valid && feedbackForm.get('class').touched">
+                <p>Must choose class</p>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="stacked">Feedback</ion-label>
+                <ion-textarea value="Enter Comments Here..." type="text" formControlName="comment" rows="5"></ion-textarea> 
+              </ion-item>
+
+              <ion-item *ngIf="!feedbackForm.get('comment').valid && feedbackForm.get('comment').touched">
+                <p>Must enter feedback comments. Max length of 300 characters.</p>
+              </ion-item>
+
+              <ion-button [disabled]="feedbackForm.invalid" type="submit" expand="block" (click)="submitFeedback()">Submit Feedback</ion-button>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

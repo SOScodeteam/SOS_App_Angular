@@ -19,7 +19,7 @@
     <ion-list>
       <ion-item-sliding #slidingItem *ngFor="let instructor of instructors | async; trackBy: trackById">
         <ion-item>
-          <ion-label (click)="edit(instructor)">{{ instructor.name }}</ion-label>
+          <ion-label (click)="edit(instructor)">{{ instructor.displayName }}</ion-label>
           <ion-button (click)="openCloseSlider(slidingItem)" color="none" fill="none">
             <ion-icon slot="icon-only" color="medium" name="cog">options</ion-icon>
           </ion-button>
