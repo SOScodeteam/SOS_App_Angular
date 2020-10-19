@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DbService } from '../../services/db.service';
-import { ModalController, ToastController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
 import { shareReplay } from 'rxjs/operators';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as firebase from 'firebase';
@@ -20,7 +20,6 @@ export class FeedbackFormInstructorComponent implements OnInit {
 
   constructor(
     private db: DbService, 
-    private modal: ModalController, 
     private fb: FormBuilder,
     private toast: ToastController
   ) { }
@@ -53,14 +52,14 @@ export class FeedbackFormInstructorComponent implements OnInit {
       ...this.feedbackForm.value,
     };
     this.db.updateAt(`feedback/${id}`, data);
-    this.modal.dismiss();
   }
 
   trackByInstructor(id, instructor) {
     return instructor.id
   }
 
-  submitFeedback(){
+  async submitFeedback(){
+    await this.create();
     this.presentToast();
     this.clearForm();
   }
