@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { FeedbackFormComponent } from './feedback-form.component';
+import { FeedbackFormClassComponent } from './feedback-form-class.component';
 
-describe('FeedbackFormComponent', () => {
-  let component: FeedbackFormComponent;
-  let fixture: ComponentFixture<FeedbackFormComponent>;
+describe('FeedbackFormClassComponent', () => {
+  let component: FeedbackFormClassComponent;
+  let fixture: ComponentFixture<FeedbackFormClassComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FeedbackFormComponent ],
+      declarations: [ FeedbackFormClassComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(FeedbackFormComponent);
+    fixture = TestBed.createComponent(FeedbackFormClassComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

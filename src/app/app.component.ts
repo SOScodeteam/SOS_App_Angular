@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +10,13 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  pages : any;
+  pages: any;
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    public auth: AuthService
   ) {
     this.sideMenu();
     this.initializeApp();
@@ -33,32 +35,43 @@ export class AppComponent {
     [
       // order user seen pages here
       {
-        title : "Home",
-        url   : "/home",
-        icon  : "home",
-        role : "student"
+        title: 'Home',
+        url  : '/home',
+        icon : 'home',
+        role : 'student'
       },
 
-      {
-        title : "Feedback",
-        url   : "/feedback",
-        icon  : "book",
-        role : "student"
+      { // Feedback form
+        title: 'Submit Feedback',
+        url  : '/feedback',
+        icon : 'create',
+        role : 'student'
       },
-      
-      // Order Admin pages here 
+      // Order Admin pages here
       {
-        title : "Lessons",
-        url   : "/admin/lessons",
-        icon  : "book",
-        role : "admin"
-      }
-
-      // Feedback form
-      
-
-    ]
+        title: 'Manage Classes',
+        url  : '/admin/classes',
+        icon : 'file-tray-full',
+        role : 'admin'
+      },
+      {
+        title: 'Manage Lessons',
+        url  : '/admin/lessons',
+        icon : 'book',
+        role : 'admin'
+      },
+      {
+        title: 'Manage Flights',
+        url  : '/admin/flights',
+        icon : 'people-circle',
+        role : 'admin'
+      },
+      {
+        title: 'Manage Instructors',
+        url  : '/admin/instructors',
+        icon : 'person',
+        role : 'admin'
+      },
+    ];
   }
-
-    
 }

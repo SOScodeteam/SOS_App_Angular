@@ -10,5 +10,15 @@
 </ion-header>
 
 <ion-content>
-  <app-feedback-form></app-feedback-form>
+  <h2 class="ion-text-center">Select a feedback type</h2>
+  <ion-segment  (ionChange)="selectFeedbackForm($event)" color="primary">
+  
+    <ion-segment-button value="lesson">Lesson</ion-segment-button>
+    <ion-segment-button value="class" checked>Class</ion-segment-button>
+    <ion-segment-button value="instructor">Instructor</ion-segment-button>
+  </ion-segment>
+
+  <app-feedback-form-class *ngIf="feedbackType === 'class'"></app-feedback-form-class>
+  <app-feedback-form-instructor *ngIf="feedbackType == 'instructor'"></app-feedback-form-instructor>
+  <app-feedback-form-lesson *ngIf="feedbackType == 'lesson'"></app-feedback-form-lesson>
 </ion-content>

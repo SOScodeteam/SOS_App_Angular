@@ -1,14 +1,45 @@
-<ion-header>
-  <ion-toolbar>
-      <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-    <ion-title>
-      Squadron Officer School
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+ <ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+      <ion-title>
+        SOS Feedback Home
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-<ion-content>  
+<ion-content>
   <app-login></app-login>
-</ion-content> 
+  
+  <ion-card>
+    <ion-card-header class="ion-text-center">
+      <h3>Useful Links:</h3>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row class="ion-justify-content-between">
+          <ion-col size="12" size-sm class="ion-text-center" *ngIf="auth.user$ | async as user">
+            <a href="/feedback"><img src="../../assets/icon/feedback.png" alt="Provide Feedback" style="max-height: 150px" ></a>
+          </ion-col>
+          <ion-col size="12" size-sm class="ion-text-center">
+            <a target="_blank" rel="noopener noreferrer" href="https://lms.au.af.edu/">
+              <img src="../../assets/icon/Canvas-Logo.png" alt="Canvas" style="max-height: 150px">
+            </a>
+          </ion-col>
+          <ion-col size-sm  class="ion-text-center">
+            <a target="_blank" rel="noopener noreferrer" href="https://calendar.google.com/calendar/embed?src=usaf.sos.scheduling%40gmail.com">
+              <img src="../../assets/icon/Google_Calendar_Logo.png" alt="SOS Google Calendar" style="max-height: 150px">
+            </a>
+          </ion-col>
+          <ion-col size="12" size-sm class="ion-text-center">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.airuniversity.af.edu/SOS/">
+              <img src="../../assets/icon/AU-Logo.png" alt="Air University" style="max-height: 150px">
+            </a>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

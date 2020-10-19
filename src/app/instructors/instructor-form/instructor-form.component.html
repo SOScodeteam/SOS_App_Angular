@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title *ngIf="!instructor">Create a New Instructor</ion-title>
+    <ion-title *ngIf="instructor">Edit Instructor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="instructorForm" (ngSubmit)="create()">
+    <ion-item>
+      <ion-label>Display Name:</ion-label>
+      <ion-input formControlName="displayName" type="text" placeholder="Instructor Display Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>First Name:</ion-label>
+      <ion-input formControlName="firstName" type="text" placeholder="Instructor First Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Last Name:</ion-label>
+      <ion-input formControlName="lastName" type="text" placeholder="Instructor Last Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Rank:</ion-label>
+      <ion-input formControlName="rank" type="text" placeholder="Instructor Rank"></ion-input>
+    </ion-item>
+    <ion-button *ngIf="!instructor" [disabled]="instructorForm.invalid" type="submit" expand="block" fill="clear" shape="round">
+      Create
+    </ion-button>
+    <ion-button *ngIf="instructor" [disabled]="instructorForm.invalid" type="submit" expand="block" fill="clear" shape="round" [disabled]="!instructorForm.dirty">
+      Update
+    </ion-button>
+    <ion-button *ngIf="instructor" (click)="openDeleteAlert()" expand="block" fill="clear" shape="round" color="danger">
+      Delete
+    </ion-button>
+    <ion-button (click)="closeModal()" expand="block" fill="clear" shape="round">
+      Cancel
+    </ion-button>
+  </form>
+</ion-content>
