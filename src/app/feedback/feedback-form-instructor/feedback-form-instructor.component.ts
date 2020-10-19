@@ -33,7 +33,7 @@ export class FeedbackFormInstructorComponent implements OnInit {
 
     this.feedbackForm = this.fb.group({
       instructor: [ data.instructor,[Validators.required]],
-      comment: [ data.comment,[Validators.required]],
+      comment: [ data.comment, [Validators.required, Validators.maxLength(300), Validators.minLength(1)]],
     });
 
     this.instructors = this.db.collection$('instructors', ref =>

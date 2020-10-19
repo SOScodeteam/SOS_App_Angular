@@ -15,10 +15,18 @@
                 </ion-select>
               </ion-item>
 
+              <ion-item *ngIf="!feedbackForm.get('instructor').valid && feedbackForm.get('instructor').touched">
+                <p>Must choose instructor</p>
+              </ion-item>
+
 
               <ion-item>
                 <ion-label position="stacked">Feedback:</ion-label>
                 <ion-textarea formControlName="comment" type="text" rows="5" text-right></ion-textarea>
+            </ion-item>
+
+            <ion-item *ngIf="!feedbackForm.get('comment').valid && feedbackForm.get('comment').touched">
+              <p>Must enter feedback comments. Max length of 500 characters.</p>
             </ion-item>
              
               <ion-button [disabled]="feedbackForm.invalid" type="submit" expand="block">Submit Feedback</ion-button>

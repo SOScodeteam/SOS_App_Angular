@@ -14,7 +14,7 @@
               </ion-item>
 
               <ion-item *ngIf="!feedbackForm.get('lesson').valid && feedbackForm.get('lesson').touched">
-                <p>Must choose class</p>
+                <p>Must choose lesson</p>
               </ion-item>
 
               <ion-item>
@@ -29,12 +29,12 @@
               </ion-item>
 
               <ion-item>
-                <ion-label position="stacked">Feedback</ion-label>
+                <ion-label position="stacked">Feedback:</ion-label>
                 <ion-textarea value="Enter Comments Here..." type="text" formControlName="comment" rows="5"></ion-textarea> 
               </ion-item>
 
               <ion-item *ngIf="!feedbackForm.get('comment').valid && feedbackForm.get('comment').touched">
-                <p>Must enter feedback comments. Max length of 300 characters.</p>
+                <p>Must enter feedback comments. Max length of 500 characters.</p>
               </ion-item>
 
               <ion-button [disabled]="feedbackForm.invalid" type="submit" expand="block">Submit Feedback</ion-button>
