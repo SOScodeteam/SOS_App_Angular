@@ -1,6 +1,9 @@
 # SOS App Angular
 
-This project aims to provide a flexible and maintainable feedback system for SOS.
+This project aims to provide a flexible and maintainable feedback system for Squadron Officer School (SOS). The current application can be viewed at app.squadronofficerschool.org.
+___________________________________________________________________________________________________________________________
+### **Application Is Still A Work In Progress
+More information on what peices of functionality need to be built out can be found on the [Git Project Board](https://github.com/SOScodeteam/SOS_App_Angular/projects/1)
 
 ___________________________________________________________________________________________________________________________
 ## Tech Stack
@@ -21,6 +24,16 @@ ________________________________________________________________________________
 - Functionality
     - Need application to run on Mobile devices as well as Browser
         - Ionic provides easily portable components that adapt to running environment
+
+___________________________________________________________________________________________________________________________
+## Project Workflow
+### **Application Is Still A Work In Progress
+
+- More information on what pieces of functionality need to be built out can be found on the [Git Project Board](https://github.com/SOScodeteam/SOS_App_Angular/projects/1)
+- All code for the front end lives on the [Git Repo](https://github.com/SOScodeteam/SOS_App_Angular)
+- If you need to make new database tables or webhooks it is done on the Firebase Wesite
+    - You will need access to https://console.firebase.google.com/u/1/project/sosapp-122b9/overview
+- Pipeline will automatically deploy all new code that is merged into the `main` branch to the production app located at app.squadronofficerschool.org
 
 ___________________________________________________________________________________________________________________________
 ## Installation
@@ -166,3 +179,6 @@ First browse to the `SOS_App_Angular` project folder
 1. Run `git add .`
 1. Run `git commit -m "merged"`
 1. Run `git push`
+
+**Firebase Development**
+- Need to be given access to the firebase store located at https://console.firebase.google.com/u/1/project/sosapp-122b9/overview
