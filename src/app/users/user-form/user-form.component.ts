@@ -41,9 +41,9 @@ export class UserFormComponent implements OnInit {
     };
 
     this.userForm = this.fb.group({
-      rank: [data.rank],
-      firstName: [data.firstName],
-      lastName: [data.lastName],
+      rank: [data.rank, [Validators.required]],
+      firstName: [data.firstName, [Validators.required]],
+      lastName: [data.lastName, [Validators.required]],
       email: [data.email, [Validators.required]],
       photoURL: [data.photoURL],
       isAnonymous: [data.isAnonymous, [Validators.required]],

@@ -13,6 +13,9 @@ import { FeedbackDetailsComponent } from "./feedback-details/feedback-details.co
 })
 export class ReviewPage implements OnInit {
   feedback;
+  lessonFilter = true;
+  instructorFilter = true;
+  classFilter = true;
 
 
   constructor(
@@ -34,6 +37,17 @@ export class ReviewPage implements OnInit {
     });
     return await modal.present();
   }
-
+  toggleFilter(filter) {
+    switch(filter) {
+      case 'lesson':
+        this.lessonFilter = !this.lessonFilter;
+        break;
+      case 'class':
+        this.classFilter = !this.classFilter;
+        break;
+      default:
+        this.instructorFilter = !this.instructorFilter;
+    }
+  }
 
 }
