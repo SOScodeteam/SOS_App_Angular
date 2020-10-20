@@ -3,6 +3,7 @@ export interface Roles {
     instructor?: boolean;
     sos?: boolean;
     student?: boolean;
+    user?: boolean;
  }
   
 export interface User {
