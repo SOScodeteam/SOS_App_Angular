@@ -47,10 +47,12 @@ export class UserFormComponent implements OnInit {
       email: [data.email, [Validators.required]],
       photoURL: [data.photoURL],
       isAnonymous: [data.isAnonymous, [Validators.required]],
-      adminRole: [data.roles.admin, [Validators.required]],
-      instructorRole: [data.roles.instructor, [Validators.required]],
-      sosRole: [data.roles.sos, [Validators.required]],
-      studentRole: [data.roles.student, [Validators.required]],
+      roles: this.fb.group({
+        admin: [data.roles["admin"], [Validators.required]],
+        instructor: [data.roles["instructor"], [Validators.required]],
+        sos: [data.roles["sos"], [Validators.required]],
+        student: [data.roles["student"], [Validators.required]],
+      })
     });
   }
 
@@ -60,10 +62,10 @@ export class UserFormComponent implements OnInit {
     const data = {
       displayName: this.user.rank + ' ' + this.user.firstName + ' ' + this.user.lastName,
       roles: [
-        {admin: this.user.adminRole},
-        {instructor: this.user.instructorRole},
-        {sos: this.user.sosRole},
-        {student: this.user.studentRole},
+        {admin: this.user.roles["admin"]},
+        {instructor: this.user.roles["instructor"]},
+        {sos: this.user.roles["sos"]},
+        {student: this.user.roles["student"]},
         ],
       ...this.user,
       ...this.userForm.value,

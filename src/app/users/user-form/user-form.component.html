@@ -34,24 +34,24 @@
       <ion-label>photo URL:</ion-label>
       <ion-input formControlName="photoURL" type="text" placeholder="https://link-to-photo...."></ion-input>
     </ion-item>
-    <ion-list>
+    <ion-list formGroupName="roles">
       <ion-label>Roles:</ion-label>
       <ion-item>
         <ion-label>Admin</ion-label>
-        <ion-toggle formControlName="adminRole" color="success"></ion-toggle>
+        <ion-toggle formControlName="admin" color="success"></ion-toggle>
       </ion-item>
       <ion-item>
         <ion-label>Instructor</ion-label>
-        <ion-toggle formControlName="instructorRole" color="success"></ion-toggle>
+        <ion-toggle formControlName="instructor" color="success"></ion-toggle>
       </ion-item>
 
       <ion-item>
         <ion-label>SOS</ion-label>
-        <ion-toggle formControlName="sosRole" color="success"></ion-toggle>
+        <ion-toggle formControlName="sos" color="success"></ion-toggle>
       </ion-item>
       <ion-item>
         <ion-label>Student</ion-label>
-        <ion-toggle formControlName="studentRole" color="success"></ion-toggle>
+        <ion-toggle formControlName="student" color="success"></ion-toggle>
       </ion-item>
     </ion-list>
 
