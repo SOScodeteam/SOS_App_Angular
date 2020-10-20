@@ -1,8 +1,8 @@
 export interface Roles { 
     admin?: boolean;
-    player?: boolean;
-    user?: boolean;
-    anonymous?: boolean;
+    instructor?: boolean;
+    sos?: boolean;
+    student?: boolean;
  }
   
 export interface User {
