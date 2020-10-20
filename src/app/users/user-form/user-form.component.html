@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar *ngIf="!user" color="success">
+    <ion-title>Create a New User</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar *ngIf="user" color="primary">
+    <ion-title >Edit User</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="userForm" (ngSubmit)="create()">
+    <ion-item>
+      <ion-label>Rank: </ion-label>
+      <ion-select  formControlName="rank" placeholder="Select rank" ok-text="Okay" cancel-text="Dismiss">
+          <ion-select-option *ngFor="let rank of ranks" [value]="rank.name">
+              {{ rank.name }}
+          </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>First Name:</ion-label>
+      <ion-input formControlName="firstName" type="text" placeholder="first"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Last Name:</ion-label>
+      <ion-input formControlName="lastName" type="text" placeholder="last"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>email:</ion-label>
+      <ion-input formControlName="email" type="text" placeholder="name@domain.com"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>photo URL:</ion-label>
+      <ion-input formControlName="photoURL" type="text" placeholder="https://link-to-photo...."></ion-input>
+    </ion-item>
+    <ion-list>
+      <ion-label>Roles:</ion-label>
+      <ion-item>
+        <ion-label>Admin</ion-label>
+        <ion-toggle formControlName="adminRole" color="success"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>Instructor</ion-label>
+        <ion-toggle formControlName="instructorRole" color="success"></ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>SOS</ion-label>
+        <ion-toggle formControlName="sosRole" color="success"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>Student</ion-label>
+        <ion-toggle formControlName="studentRole" color="success"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+
+    <ion-button *ngIf="!user" [disabled]="userForm.invalid" type="submit" expand="block" fill="clear" shape="round" color="success">
+      Create
+    </ion-button>
+    <ion-button *ngIf="user" [disabled]="userForm.invalid" type="submit" expand="block" fill="clear" shape="round" [disabled]="!userForm.dirty">
+      Update
+    </ion-button>
+    <ion-button *ngIf="user" (click)="openDeleteAlert()" expand="block" fill="clear" shape="round" color="danger">
+      Delete
+    </ion-button>
+    <ion-button (click)="closeModal()" expand="block" fill="clear" shape="round">
+      Cancel
+    </ion-button>
+  </form>
+</ion-content>
