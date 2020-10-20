@@ -40,6 +40,10 @@ const routes: Routes = [
     canActivate: [AdminGuard]
   },
   {
+    path: 'admin/review',
+    loadChildren: () => import('./review/review.module').then( m => m.ReviewPageModule)
+  },
+  {
     path: 'admin/users',
     loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule),
     canActivate: [AdminGuard]
