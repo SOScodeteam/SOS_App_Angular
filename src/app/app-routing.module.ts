@@ -19,7 +19,6 @@ const routes: Routes = [
     loadChildren: () => import('./lessons/lessons.module').then( m => m.LessonsPageModule),
     canActivate: [AdminGuard]
   },
-
   {
     path: 'feedback',
     loadChildren: () => import('./feedback/feedback.module').then( m => m.FeedbackPageModule),
@@ -48,7 +47,8 @@ const routes: Routes = [
     path: 'admin/users',
     loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule),
     canActivate: [AdminGuard]
-  }
+  },
+
 ];
 
 @NgModule({
