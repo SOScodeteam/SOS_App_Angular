@@ -12,6 +12,8 @@ import { Platform } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 
+import { User } from '../interfaces/user';
+
 
 @Injectable({
   providedIn: 'root'
@@ -38,15 +40,18 @@ export class AuthService {
     return await this.updateUserData(credential.user);
   }
 
-  private updateUserData({uid, email, displayName, photoURL, isAnonymous})  {
-    const path = `users/${uid}`;
+  private updateUserData(user)  {
+    const path = `users/${user.uid}`;
 
     const data = {
-      uid,
-      email,
-      displayName,
-      photoURL,
-      isAnonymous
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+      isAnonymous: user.isAnonymous,
+      roles: {
+        user: true
+      }
     };
 
     return this.db.updateAt(path, data)
@@ -67,6 +72,7 @@ export class AuthService {
   }
 
 
+
   async googleLogin() {
     const provider = new auth.GoogleAuthProvider();
     const credential = await this.afAuth.signInWithPopup(provider);
@@ -85,5 +91,45 @@ export class AuthService {
     );
   }
 
-}
+    ///// Role-based Authorization //////
+    isRegistered(user: User): boolean {
+      const allowed = ['admin', 'instructor', 'student', 'sos']
+      return this.checkAuthorization(user, allowed)
+    }
 
+
+    isAdmin(user: User): boolean {
+      const allowed = ['admin']
+      return this.checkAuthorization(user, allowed)
+    }
+
+    isInstructor(user: User): boolean {
+      const allowed = ['instructor']
+      return this.checkAuthorization(user, allowed)
+    }
+
+    isStudent(user: User): boolean {
+      const allowed = ['student']
+      return this.checkAuthorization(user, allowed)
+    }
+
+    isSOS(user: User): boolean {
+      const allowed = ['sos']
+      return this.checkAuthorization(user, allowed)
+    }
+  
+  
+    // determines if user has matching role
+    private checkAuthorization(user: User, allowedRoles: string[]): boolean {
+      if (!user) return false
+      if (user.roles == null) return false
+      for (const role of allowedRoles) {
+        if ( user.roles[role] ) {
+          return true
+        }
+      }
+      return false
+    }
+  
+  
+}

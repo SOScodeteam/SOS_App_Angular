@@ -78,6 +78,12 @@ export class AppComponent {
         icon : 'person',
         role : 'admin'
       },
+      {
+        title: 'Manage Users',
+        url  : '/admin/users',
+        icon : 'person-add',
+        role : 'admin'
+      },
     ];
   }
 }
