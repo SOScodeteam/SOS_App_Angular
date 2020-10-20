@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AdminGuard } from './guards/admin.guard';
 import { AuthGuard } from './guards/auth.guard';
+import { StudentGuard } from './guards/student.guard';
 
 const routes: Routes = [
   {
@@ -16,25 +17,30 @@ const routes: Routes = [
   {
     path: 'admin/lessons',
     loadChildren: () => import('./lessons/lessons.module').then( m => m.LessonsPageModule),
-    //canActivate: [AuthGuard]
+    canActivate: [AdminGuard]
   },
 
   {
     path: 'feedback',
-    loadChildren: () => import('./feedback/feedback.module').then( m => m.FeedbackPageModule)
+    loadChildren: () => import('./feedback/feedback.module').then( m => m.FeedbackPageModule),
+    canActivate: [StudentGuard]
   },
   {
     path: 'admin/flights',
-    loadChildren: () => import('./flights/flights.module').then( m => m.FlightsPageModule)
+    loadChildren: () => import('./flights/flights.module').then( m => m.FlightsPageModule),
+    canActivate: [AdminGuard]
   },
   {
     path: 'admin/classes',
-    loadChildren: () => import('./classes/classes.module').then( m => m.CoursesPageModule)
+    loadChildren: () => import('./classes/classes.module').then( m => m.CoursesPageModule),
+    canActivate: [AdminGuard]
   },
   {
     path: 'admin/instructors',
-    loadChildren: () => import('./instructors/instructors.module').then( m => m.InstructorsPageModule)
+    loadChildren: () => import('./instructors/instructors.module').then( m => m.InstructorsPageModule),
+    canActivate: [AdminGuard]
   },
+
 
 ];
 
