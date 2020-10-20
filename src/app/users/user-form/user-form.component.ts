@@ -60,7 +60,7 @@ export class UserFormComponent implements OnInit {
     const id = this.user ? this.user.id : '';
 
     const data = {
-      displayName: this.user.rank + ' ' + this.user.firstName + ' ' + this.user.lastName,
+      
       roles: [
         {admin: this.user.roles["admin"]},
         {instructor: this.user.roles["instructor"]},
@@ -69,6 +69,7 @@ export class UserFormComponent implements OnInit {
         ],
       ...this.user,
       ...this.userForm.value,
+      displayName: this.userForm.value.rank + ' ' + this.userForm.value.firstName + ' ' + this.userForm.value.lastName,
     };
     this.db.updateAt(`users/${id}`, data);
     this.modal.dismiss();
