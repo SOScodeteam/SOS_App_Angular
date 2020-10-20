@@ -1,6 +1,29 @@
 # SOS App Angular
 
-This protect aims to provide a flexible and maintainable feedback system for SOS.
+This project aims to provide a flexible and maintainable feedback system for SOS.
+
+___________________________________________________________________________________________________________________________
+## Tech Stack
+- [JavaScript/Typescript](https://www.javascript.com/)
+- [Angular](https://angular.io/)
+- [Ionic](https://ionicframework.com/)
+- [FireBase](https://firebase.google.com/)
+
+**Additional Resources**
+- [Ionic and Firebase Development](https://fireship.io/)
+
+**Why Tech Stack**
+- Developer Life
+    - Used common developer technoglogies, that are well supported by online resources
+        - [Stack Overflow Popular Tech](https://insights.stackoverflow.com/survey/2019#technology-_-programming-scripting-and-markup-languages)
+    - Limited set up required on developer workstation
+    - Modular development structure to make adding features easier
+- Functionality
+    - Need application to run on Mobile devices as well as Browser
+        - Ionic provides easily portable components that adapt to running environment
+
+___________________________________________________________________________________________________________________________
+## Installation
 
 **Getting Started:**
 - Angular
