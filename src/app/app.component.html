@@ -7,24 +7,24 @@
     </ion-header>
 
     <ion-content *ngIf="auth.user$ | async as user; else loginMessage">
-      <ion-list>
-        <ion-list-header *ngIf="auth.isStudent(user)">
+      <ion-list *ngIf="auth.isStudent(user)">
+        <ion-list-header>
           Student Options
         </ion-list-header>
           <ng-container *ngFor="let page of pages">
-            <ion-item *ngIf="auth.isStudent(user)" [routerLink]="page.url" routerDirection="forward"
+            <ion-item *ngIf="page.role === 'student'" [routerLink]="page.url" routerDirection="forward"
               (click)="sidemenu.close()">
               <ion-icon [name]="page.icon" color="primary" slot="start"></ion-icon>
               {{ page.title }}
             </ion-item>
           </ng-container>
       </ion-list>
-      <ion-list>
-        <ion-list-header *ngIf="auth.isAdmin(user)">
+      <ion-list *ngIf="auth.isAdmin(user)">
+        <ion-list-header>
           Admin Options
         </ion-list-header>
           <ng-container *ngFor="let page of pages">
-            <ion-item *ngIf="auth.isAdmin(user)" [routerLink]="page.url" routerDirection="forward"
+            <ion-item *ngIf="page.role === 'admin'" [routerLink]="page.url" routerDirection="forward"
               (click)="sidemenu.close()">
               <ion-icon [name]="page.icon" color="primary" slot="start"></ion-icon>
               {{ page.title }}
