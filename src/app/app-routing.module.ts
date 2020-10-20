@@ -40,11 +40,6 @@ const routes: Routes = [
     loadChildren: () => import('./instructors/instructors.module').then( m => m.InstructorsPageModule),
     canActivate: [AdminGuard]
   },
-  {
-    path: 'users',
-    loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule),
-    canActivate: [AdminGuard]
-  },
 
 
 ];
