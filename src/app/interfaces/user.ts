@@ -1,8 +1,9 @@
 export interface Roles { 
     admin?: boolean;
-    player?: boolean;
+    instructor?: boolean;
+    sos?: boolean;
+    student?: boolean;
     user?: boolean;
-    anonymous?: boolean;
  }
   
 export interface User {
@@ -10,5 +11,6 @@ export interface User {
     email: string,
     displayName: string,
     photoUrl: string,
+    isAnonymous: boolean,
     roles: Roles;
 }

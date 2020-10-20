@@ -49,7 +49,9 @@ export class AuthService {
       displayName: user.displayName,
       photoURL: user.photoURL,
       isAnonymous: user.isAnonymous,
-      roles: user.roles
+      roles: {
+        user: true
+      }
     };
 
     return this.db.updateAt(path, data)
