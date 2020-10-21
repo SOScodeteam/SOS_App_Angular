@@ -49,5 +49,7 @@ export class ReviewPage implements OnInit {
         this.instructorFilter = !this.instructorFilter;
     }
   }
-
+  countItems(collection, prop) {
+    return collection.filter(item => prop in item).length;
+  }
 }
