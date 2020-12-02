@@ -105,6 +105,10 @@ Angular: https://angular.io/guide/setup-local#install-the-angular-cli
 1. Enter `npm install -g @angular/cli`
 1. Use default installation options (will NOT share usage data by default)
 
+**Mac**
+1. If you run into permissions errors, you may need to include 'sudo' in your command & enter your system password
++ (i.e. run 'sudo npm install -g @angular/cli')
+
 ## Installing Ionic
 Ionic: https://ionicframework.com/docs/intro/cli#install-the-ionic-cli
 
@@ -115,6 +119,10 @@ Ionic: https://ionicframework.com/docs/intro/cli#install-the-ionic-cli
 1. `Windows key + r` keyboard shortcut
 1. Type `cmd` and hit `enter`
 1. Enter `npm install -g @ionic/cli`
+
+**Mac**
+1. If you run into permissions errors, you may need to include 'sudo' in your command & enter your system password
++ (i.e. run 'sudo npm install -g @ionic/cli')
 
 ## Clone the Repository
 
