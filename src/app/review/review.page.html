@@ -31,7 +31,6 @@
         <ion-item *ngIf="fb.lesson && lessonFilter" (click)="showDetails(fb)">
           <ion-icon name="book" color="primary" slot="start"></ion-icon>
           <ion-label>
-            <!-- <h2>{{ fb.createdAt.toDate() | date:'yyyy/MM/dd h:mm:ss a' }}</h2> -->
             <h2>{{ fb.lesson }}</h2>
             <p>{{ fb.comment }}</p>
           </ion-label>
@@ -39,7 +38,6 @@
         <ion-item *ngIf="fb.instructor && instructorFilter" (click)="showDetails(fb)">
           <ion-icon name="person" color="primary" slot="start"></ion-icon>
           <ion-label>
-            <!-- <h2>{{ fb.createdAt.toDate() | date:'yyyy/MM/dd h:mm:ss a' }}</h2> -->
             <h2>{{ fb.instructor }}</h2>
             <p>{{ fb.comment }}</p>
           </ion-label>
@@ -47,7 +45,6 @@
         <ion-item *ngIf="fb.class && classFilter" (click)="showDetails(fb)">
           <ion-icon name="file-tray-full" color="primary" slot="start"></ion-icon>
           <ion-label>
-            <!-- <h2>{{ fb.createdAt.toDate() | date:'yyyy/MM/dd h:mm:ss a' }}</h2> -->
             <h2>{{ fb.class }}</h2>
             <p>{{ fb.comment }}</p>
           </ion-label>

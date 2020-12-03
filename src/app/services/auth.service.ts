@@ -43,7 +43,6 @@ export class AuthService {
   private updateUserData(user)  {
     const path = `users/${user.uid}`;
 
-    // console.log(`${Object.keys(user)}`);
 
     const data = {
       uid: user.uid,
@@ -54,10 +53,8 @@ export class AuthService {
       roles: {
         user: true,
         student: true
-        // added student attribute to roles object
       }
     };
-    console.log(data);
     return this.db.updateAt(path, data)
   }
 
