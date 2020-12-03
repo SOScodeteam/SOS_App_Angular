@@ -107,7 +107,7 @@ Angular: https://angular.io/guide/setup-local#install-the-angular-cli
 
 **Mac**
 1. If you run into permissions errors, you may need to include 'sudo' in your command & enter your system password
-+ (i.e. run 'sudo npm install -g @angular/cli')
++ (i.e. run `sudo npm install -g @angular/cli`)
 
 ## Installing Ionic
 Ionic: https://ionicframework.com/docs/intro/cli#install-the-ionic-cli
@@ -122,7 +122,7 @@ Ionic: https://ionicframework.com/docs/intro/cli#install-the-ionic-cli
 
 **Mac**
 1. If you run into permissions errors, you may need to include 'sudo' in your command & enter your system password
-+ (i.e. run 'sudo npm install -g @ionic/cli')
++ (i.e. run `sudo npm install -g @ionic/cli`)
 
 ## Clone the Repository
 

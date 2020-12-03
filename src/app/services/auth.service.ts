@@ -43,6 +43,7 @@ export class AuthService {
   private updateUserData(user)  {
     const path = `users/${user.uid}`;
 
+
     const data = {
       uid: user.uid,
       email: user.email,
@@ -50,10 +51,10 @@ export class AuthService {
       photoURL: user.photoURL,
       isAnonymous: user.isAnonymous,
       roles: {
-        user: true
+        user: true,
+        student: true
       }
     };
-
     return this.db.updateAt(path, data)
   }
 
