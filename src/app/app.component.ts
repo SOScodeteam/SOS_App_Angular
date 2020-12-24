@@ -40,11 +40,16 @@ export class AppComponent {
         icon : 'home',
         role : 'student'
       },
-
       { // Feedback form
         title: 'Submit Feedback',
         url  : '/feedback',
         icon : 'create',
+        role : 'student'
+      },
+      { // My Feedback (View instr responses)
+        title: 'Review My Feedbacks',
+        url  : '/student/review',
+        icon : 'stats-chart',
         role : 'student'
       },
       // Order Admin pages here

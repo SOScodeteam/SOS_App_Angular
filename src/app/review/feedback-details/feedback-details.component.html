@@ -33,4 +33,17 @@
     Close
   </ion-button>
 
+  <!-- The code below is a 'hard-coded' prototype of the instructor response form. It needs to be configured to 'post' to the firestore database. It will need a field that lists a session ID specific to the student's machine. That ID can be used to 'get' all feedbacks and associated responses from firestore to post to the student review page (see additional comments on student-view-page.html -->
+  <ion-list>
+    <ion-item>
+      <ion-label><h2><b>Response:</b></h2></ion-label>
+        <ion-textarea value="Enter Comments Here..." type="text" rows="5"></ion-textarea> 
+    </ion-item>
+  </ion-list>
+
+  <ion-button (click)="initiateNewResponse()" expand="block" fill="clear" shape="round">
+    Submit Response
+  </ion-button>
+
+
 </ion-content>
