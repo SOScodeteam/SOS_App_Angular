@@ -1,0 +1,56 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            My Feedback Discussion Boards
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div class='ion-text-center'>
+        <h2>Review Instructor Responses</h2>
+    </div>
+
+    <!-- The code below is a 'hard-coded' prototype of the student review page. Once the instructor response form can post to database, student-view-page.ts needs to 'get' from firestore and map through feedbacks & associated responses to follow the format below. -->
+    <ion-list>
+        <ion-item>
+            <ion-icon name='create' color='primary' slot='start'></ion-icon>
+            <ion-label>
+                <p>I think we should have wargames!</p>
+            </ion-label>
+        </ion-item>
+
+        <ion-item class='discussion'>
+            <ion-icon name='chatbubble-outline' color='success' slot='start'></ion-icon>
+            <ion-label>
+                <p>Awesome idea! Could you provide a little more detail?</p>
+            </ion-label>
+        </ion-item>
+
+        <ion-item class='discussion'>
+            <ion-icon name='chatbubble-outline' color='primary' slot='start'></ion-icon>
+            <ion-label>
+                <p>Sure! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed magna mi, aliquet in imperdiet quis, venenatis nec nunc. Nam magna velit, tempor id urna sed, consequat faucibus elit. Quisque lorem justo, scelerisque et semper ut, pellentesque non velit. Sed quis tempor turpis. In hac habitasse platea dictumst. Suspendisse sed lacus eu nunc mattis convallis. </p>
+            </ion-label>
+        </ion-item>
+
+        <ion-item class='discussion'>
+            <ion-icon name='chatbubble-outline' color='success' slot='start'></ion-icon>
+            <ion-label>
+                <p>We've actually tried Lorem before and we found that it had limited impact due to ipsum. But that said, we've never considered Lorem before, I'll definitely propose that at our next instructor meeting. We're always looking to improve our curriculum & sos experience, so thank you for the idea!</p>
+            </ion-label>
+        </ion-item>
+
+        <ion-item class='discussion'>
+            <ion-icon name='chatbubble-outline' color='primary' slot='start'></ion-icon>
+            <ion-label>
+                <p>Appreciate you being responsive to the feedback. Best of luck</p>
+            </ion-label>
+        </ion-item>
+
+    </ion-list>
+</ion-content>

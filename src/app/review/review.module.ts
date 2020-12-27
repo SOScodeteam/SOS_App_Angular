@@ -9,6 +9,7 @@ import { ReviewPageRoutingModule } from './review-routing.module';
 import { ReviewPage } from './review.page';
 import { FeedbackDetailsComponent } from "./feedback-details/feedback-details.component";
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -16,6 +17,6 @@ import { FeedbackDetailsComponent } from "./feedback-details/feedback-details.co
     IonicModule,
     ReviewPageRoutingModule
   ],
-  declarations: [ReviewPage, FeedbackDetailsComponent]
+  declarations: [ReviewPage, FeedbackDetailsComponent],
 })
 export class ReviewPageModule {}

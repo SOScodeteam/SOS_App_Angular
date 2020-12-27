@@ -25,6 +25,11 @@ const routes: Routes = [
     canActivate: [StudentGuard]
   },
   {
+    path: 'student/review',
+    loadChildren: () => import('./review/student-view/student-view.module').then( m => m.StudentViewPageModule),
+    canActivate: [StudentGuard]
+  },
+  {
     path: 'admin/flights',
     loadChildren: () => import('./flights/flights.module').then( m => m.FlightsPageModule),
     canActivate: [AdminGuard]
